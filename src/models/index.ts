@@ -1,7 +1,11 @@
 export default {
   state: {},
 
-  effects: {},
+  effects: {
+    *init() {
+      //do something
+    },
+  },
 
   reducers: {
     save(state, action) {
@@ -15,7 +19,10 @@ export default {
     setup: ({ dispatch, history }) => {
       return history.listen((route) => {
         // dev访问根路径的时候也会进入history.listen
-        console.log(route, 'pppp');
+        console.log(route, "pppp");
+        dispatch({
+          type: "init",
+        });
       });
     },
   },
